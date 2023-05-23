@@ -7,10 +7,12 @@ import org.testng.annotations.BeforeClass;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import automationdemo.pages.HomePage;
+import automationdemo.pages.LoginPage;
 
 public abstract class BaseTest {
     protected static WebDriver driver;
     protected static HomePage homePage;
+    protected static LoginPage loginPage;
 
     @BeforeClass
     public void setup() {
@@ -21,6 +23,7 @@ public abstract class BaseTest {
 
     @AfterClass
     public void teardown() {
-        //driver.quit();
+        driver.quit();
     }
 }
+
