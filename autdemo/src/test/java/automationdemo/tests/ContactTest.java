@@ -9,7 +9,6 @@ import automationdemo.pages.ContactPage;
 
 public class ContactTest extends BaseTest{
     private static String homeUrl = "https://automationexercise.com/";
-    private static String expectedUrl = "https://automationexercise.com/";
     private static String expectedContactTitle = "GET IN TOUCH";
 
     @Test(dataProvider = "msgInfo")
