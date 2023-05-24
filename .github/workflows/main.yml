@@ -21,7 +21,7 @@ jobs:
           distribution: 'adopt'
           
       - name: Build project
-        run: mvn clean install
+        run: mvn -f ../POM.xml clean install
 
       - name: Run E2E Tests
         run: mvn test
