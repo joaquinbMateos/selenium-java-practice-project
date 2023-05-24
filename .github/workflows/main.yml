@@ -19,7 +19,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-
+          
       - name: Build project
         run: mvn -f ../POM.xml clean install
 
