@@ -8,11 +8,13 @@ import org.testng.annotations.BeforeClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import automationdemo.pages.HomePage;
 import automationdemo.pages.LoginPage;
+import automationdemo.pages.ContactPage;
 
 public abstract class BaseTest {
     protected static WebDriver driver;
     protected static HomePage homePage;
     protected static LoginPage loginPage;
+    protected static ContactPage contactPage;
 
     @BeforeClass
     public void setup() {
