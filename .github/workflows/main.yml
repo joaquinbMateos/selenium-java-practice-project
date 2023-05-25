@@ -22,7 +22,11 @@ jobs:
         cache: maven
     
     - uses: browser-actions/setup-chrome@latest
-    - run: chrome --version
+      with:
+        chrome-version: '94.x'
+    
+    - name: Check Chrome version
+      run: google-chrome --version
     
     - name: Build project
       run: mvn -f autdemo/pom.xml clean install
