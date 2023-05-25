@@ -21,9 +21,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - uses: browser-actions/setup-chrome@latest
-      with:
-        chrome-version: '94.x'
+    - name: Download and extract ChromeDriver
+      run: |
+        CHROMEDRIVER_VERSION="94.0.4606.61"
+        wget "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
     
     - name: Check Chrome version
       run: google-chrome --version
