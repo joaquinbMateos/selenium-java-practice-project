@@ -21,13 +21,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: Download and extract ChromeDriver
+    - name: Copy ChromeDriver
+      run: sudo cp .github/chromedriver /usr/local/bin/
+
+    - name: Check Chrome and ChromeDriver versions
       run: |
-        CHROMEDRIVER_VERSION="94.0.4606.61"
-        wget "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/
-        sudo chmod +x /usr/local/bin/chromedriver
+        google-chrome-stable --version
+        chromedriver --version
     
     - name: Check Chrome version
       run: google-chrome --version
