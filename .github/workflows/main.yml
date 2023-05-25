@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-  
+
 jobs:
   build:
 
@@ -24,6 +24,9 @@ jobs:
     - uses: browser-actions/setup-chrome@latest
     - run: chrome --version
     
-    - name: Build with Maven
+    - name: Build project
+      run: mvn -f autdemo/pom.xml clean install
+
+    - name: Run E2E Tests
       run: mvn -B clean test
 
