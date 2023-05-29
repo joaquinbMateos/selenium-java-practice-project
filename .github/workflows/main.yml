@@ -23,9 +23,9 @@ jobs:
     
       - name: Set up Chrome
         uses: nanasess/setup-chromedriver@v2 #browser-actions/setup-chrome@latest
-        with:
+        #with:
           # Optional: do not specify to match Chrome's version
-          chromedriver-version: '94.0.4606.61'
+          #chromedriver-version: '94.0.4606.61'
 
       - name: Make InstallChrome.sh executable
         run: chmod +x ./scripts/installChrome.sh
