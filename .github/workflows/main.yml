@@ -25,10 +25,10 @@ jobs:
         uses: browser-actions/setup-chrome@latest
       
       - name: Make InstallChrome.sh executable
-        run: chmod +x ./scripts/InstallChrome.sh
+        run: chmod +x ./scripts/installChrome.sh
 
       - name: Run InstallChrome.sh
-        run: ./scripts/InstallChrome.sh
+        run: ./scripts/installChrome.sh
 
       - name: Build project
         run: mvn -f autdemo/pom.xml clean install
