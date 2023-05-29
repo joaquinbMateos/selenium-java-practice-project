@@ -2,28 +2,38 @@ name: Selenium with TestNG - CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-        server-id: github 
-        settings-path: ${{ github.workspace }} 
-    - name: Install Google Chrome 
-      run: |
-              chmod +x ./scripts/InstallChrome.sh
-                          ./scripts/InstallChrome.sh 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml test
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+    
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@latest
+      
+      - name: Build project
+        run: mvn -f autdemo/pom.xml clean install
+
+      - name: Run E2E Tests
+        run: mvn -B clean test
+
+      - name: Make InstallChrome.sh executable
+        run: chmod +x scripts/InstallChrome.sh
+
+      - name: Run InstallChrome.sh
+        run: scripts/InstallChrome.sh
+
 
