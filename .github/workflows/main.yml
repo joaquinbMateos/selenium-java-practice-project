@@ -24,16 +24,18 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
       
+      - name: Make InstallChrome.sh executable
+        run: chmod +x scripts/InstallChrome.sh
+
+      - name: Run InstallChrome.sh
+        run: scripts/InstallChrome.sh
+
       - name: Build project
         run: mvn -f autdemo/pom.xml clean install
 
       - name: Run E2E Tests
         run: mvn -B clean test
 
-      - name: Make InstallChrome.sh executable
-        run: chmod +x scripts/InstallChrome.sh
-
-      - name: Run InstallChrome.sh
-        run: scripts/InstallChrome.sh
+      
 
 
