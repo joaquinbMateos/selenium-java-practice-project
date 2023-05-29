@@ -25,7 +25,7 @@ jobs:
         uses: browser-actions/setup-chrome@latest
       
       - name: Make InstallChrome.sh executable
-        run: chmod +x scripts/InstallChrome.sh
+        run: chmod +x ./scripts/InstallChrome.sh
 
       - name: Run InstallChrome.sh
         run: ./scripts/InstallChrome.sh
