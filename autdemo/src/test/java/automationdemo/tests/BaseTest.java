@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import automationdemo.pages.HomePage;
 import automationdemo.pages.LoginPage;
+import automationdemo.pages.CartPage;
 import automationdemo.pages.ContactPage;
 
 public abstract class BaseTest {
@@ -15,6 +16,7 @@ public abstract class BaseTest {
     protected static HomePage homePage;
     protected static LoginPage loginPage;
     protected static ContactPage contactPage;
+    protected static CartPage cartPage;
 
     @BeforeClass
     public void setup() {
