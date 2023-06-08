@@ -15,7 +15,7 @@ public class CartTest extends BaseTest{
     private static String cartUrl = "https://automationexercise.com/view_cart";
 
     //Locators:
-    By modalSign = By.xpath("div[@class='modal-content']");
+    By modalBtn = By.xpath("//button[text()='Continue Shopping']");
     By product1 = By.xpath("//tr[@id='product-1']");
     By product2 = By.xpath("//tr[@id='product-2']");
 
@@ -27,10 +27,10 @@ public class CartTest extends BaseTest{
             WebDriverWait wait = new WebDriverWait(driver, 30);
             wait.until(ExpectedConditions.urlToBe(homeUrl));
             homePage.addProduct1();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(modalSign));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(modalBtn));
             homePage.continueShoppingBtn();
             homePage.addProduct2();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(modalSign));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(modalBtn));
             homePage.continueShoppingBtn();
             homePage.clickCart();
             String actualUrl = driver.getCurrentUrl();
