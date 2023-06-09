@@ -31,6 +31,7 @@ public class ContactTest extends BaseTest{
             contactPage.typeMsg(msg);
             String basePath = System.getProperty("user.dir");
             String filePath = basePath + relativePath;
+            System.out.println(filePath);
             contactPage.addFile(filePath);
             contactPage.clickSubmit();
             driver.switchTo().alert().accept();
