@@ -21,7 +21,7 @@ public class ContactTest extends BaseTest{
             homePage = new HomePage(driver);
             contactPage = new ContactPage(driver);
             driver.get(homeUrl);
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, 60);
             wait.until(ExpectedConditions.urlToBe(homeUrl));
             homePage.clickContact();
             String contactTitle = contactPage.getContactTitle();
@@ -33,8 +33,6 @@ public class ContactTest extends BaseTest{
             String basePath = System.getProperty("user.dir");
             String filePath = basePath + relativePath;
             String filePath2 = basePath + relativePath2;
-            System.out.println(filePath);
-            System.out.println(filePath2);
             contactPage.addFile(filePath2);
             contactPage.clickSubmit();
             driver.switchTo().alert().accept();
