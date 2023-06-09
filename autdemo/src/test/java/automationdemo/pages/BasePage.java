@@ -31,6 +31,7 @@ public abstract class BasePage {
     protected boolean elementIsDisplayed(By locator){
         try{
             return find(locator).isDisplayed();
+
         }catch(org.openqa.selenium.NoSuchElementException e){
             return false;
         }

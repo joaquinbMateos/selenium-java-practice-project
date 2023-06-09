@@ -28,5 +28,6 @@ jobs:
         run: mvn -f autdemo/pom.xml clean install
 
       - name: Run E2E Tests
-        run: mvn -B clean test
+        run: mvn -B -f autdemo/pom.xml clean test
+
 

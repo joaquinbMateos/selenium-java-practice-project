@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import automationdemo.pages.HomePage;
 import automationdemo.pages.ContactPage;
@@ -10,13 +11,15 @@ import automationdemo.pages.ContactPage;
 public class ContactTest extends BaseTest{
     private static String homeUrl = "https://automationexercise.com/";
     private static String expectedContactTitle = "GET IN TOUCH";
+    //private static String relativePath = "\\src\\test\\java\\automationdemo\\utils\\tc1.png";
+    private static String relativePath2 = "/src/test/java/automationdemo/utils/tc1.png";
 
     @Test(dataProvider = "msgInfo")
-        public void formContact(String name, String email, String subject, String msg, String file){
+        public void formContact(String name, String email, String subject, String msg){
             homePage = new HomePage(driver);
             contactPage = new ContactPage(driver);
             driver.get(homeUrl);
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, 60);
             wait.until(ExpectedConditions.urlToBe(homeUrl));
             homePage.clickContact();
             String contactTitle = contactPage.getContactTitle();
@@ -25,7 +28,10 @@ public class ContactTest extends BaseTest{
             contactPage.typeEmail(email);
             contactPage.typeSubject(subject);
             contactPage.typeMsg(msg);
-            contactPage.addFile(file);
+            String basePath = System.getProperty("user.dir");
+            //String filePath = basePath + relativePath;
+            String filePath2 = basePath + relativePath2;
+            contactPage.addFile(filePath2);
             contactPage.clickSubmit();
             driver.switchTo().alert().accept();
             contactPage.getSuccessMsg();
@@ -40,8 +46,7 @@ public class ContactTest extends BaseTest{
             {"agus",
             "agus@mail.com",
              "213523", 
-             "213523", 
-             "C://Users//Agustin//Downloads//tc1.png"}
+             "213523"}
         };
     }
 }
