@@ -14,6 +14,7 @@ public class ContactTest extends BaseTest{
     private static String homeUrl = "https://automationexercise.com/";
     private static String expectedContactTitle = "GET IN TOUCH";
     private static String relativePath = "\\src\\test\\java\\automationdemo\\utils\\tc1.png";
+    private static String relativePath2 = "/src/test/java/automationdemo/utils/tc1.png";
 
     @Test(dataProvider = "msgInfo")
         public void formContact(String name, String email, String subject, String msg){
@@ -31,8 +32,10 @@ public class ContactTest extends BaseTest{
             contactPage.typeMsg(msg);
             String basePath = System.getProperty("user.dir");
             String filePath = basePath + relativePath;
+            String filePath2 = basePath + relativePath2;
             System.out.println(filePath);
-            contactPage.addFile(filePath);
+            System.out.println(filePath2);
+            contactPage.addFile(filePath2);
             contactPage.clickSubmit();
             driver.switchTo().alert().accept();
             contactPage.getSuccessMsg();
