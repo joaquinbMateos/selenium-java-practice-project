@@ -3,8 +3,6 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import automationdemo.pages.HomePage;

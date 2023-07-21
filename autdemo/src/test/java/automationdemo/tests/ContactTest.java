@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import automationdemo.pages.HomePage;
 import automationdemo.pages.ContactPage;
@@ -13,7 +11,7 @@ import automationdemo.pages.ContactPage;
 public class ContactTest extends BaseTest{
     private static String homeUrl = "https://automationexercise.com/";
     private static String expectedContactTitle = "GET IN TOUCH";
-    private static String relativePath = "\\src\\test\\java\\automationdemo\\utils\\tc1.png";
+    //private static String relativePath = "\\src\\test\\java\\automationdemo\\utils\\tc1.png";
     private static String relativePath2 = "/src/test/java/automationdemo/utils/tc1.png";
 
     @Test(dataProvider = "msgInfo")
@@ -31,7 +29,7 @@ public class ContactTest extends BaseTest{
             contactPage.typeSubject(subject);
             contactPage.typeMsg(msg);
             String basePath = System.getProperty("user.dir");
-            String filePath = basePath + relativePath;
+            //String filePath = basePath + relativePath;
             String filePath2 = basePath + relativePath2;
             contactPage.addFile(filePath2);
             contactPage.clickSubmit();
