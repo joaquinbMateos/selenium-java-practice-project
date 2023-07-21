@@ -74,7 +74,7 @@ public class LoginTest extends BaseTest{
 
     @DataProvider(name = "userData")
     public Object[][] getUserData() throws Exception {
-        String jsonContent = new String(Files.readAllBytes(Paths.get("src\\test\\java\\automationdemo\\utils\\config.json")));
+        String jsonContent = new String(Files.readAllBytes(Paths.get("src/test/java/automationdemo/utils/config.json")));
         JSONObject jsonObject = new JSONObject(jsonContent);
         String userEmail = jsonObject.getString("userEmail");
         String password = jsonObject.getString("password");
